@@ -1,0 +1,241 @@
+.app-shell {
+  background-color: var(--paper);
+  background-image: linear-gradient(rgba(30, 65, 48, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 65, 48, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.app-header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-header-inner {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  min-height: 76px;
+}
+
+.brand-lockup {
+  align-items: center;
+  color: var(--ink);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 1rem;
+  gap: 0.7rem;
+  text-decoration: none;
+}
+
+.brand-lockup strong {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.brand-lockup img {
+  object-fit: contain;
+}
+
+.primary-nav {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.primary-nav .nav-link {
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  flex: 0 0 auto;
+  font-size: 0.9rem;
+  padding: 1.65rem 0.75rem 1.4rem;
+  text-decoration: none;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.primary-nav .nav-link:hover,
+.primary-nav .nav-link.active {
+  border-color: var(--orange);
+  color: var(--ink);
+}
+
+.app-main {
+  animation: arrive 320ms ease-out both;
+  padding-bottom: 5rem;
+  padding-top: clamp(2.5rem, 7vh, 5rem);
+}
+
+.page-heading {
+  align-items: end;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.page-heading h1,
+.empty-state h1 {
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  margin: 0;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+
+.page-description,
+.empty-message {
+  color: var(--muted);
+  margin: 0.45rem 0 0;
+}
+
+.data-table-wrap {
+  overflow-x: auto;
+}
+
+.data-table {
+  --bs-table-bg: transparent;
+  --bs-table-border-color: var(--line);
+  margin-bottom: 0;
+  min-width: 620px;
+}
+
+.data-table thead th {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.85rem 1rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.data-table tbody td {
+  color: var(--ink);
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.data-table tbody tr:hover {
+  background: rgba(235, 239, 223, 0.7);
+}
+
+.workout-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+}
+
+.workout-item {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--green);
+  min-height: 190px;
+  padding: 1.25rem;
+}
+
+.workout-item h2 {
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.35rem;
+  margin: 0.75rem 0 0.4rem;
+}
+
+.workout-meta {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.difficulty {
+  background: var(--pale-green);
+  color: var(--green);
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3rem 0.5rem;
+  text-transform: uppercase;
+}
+
+.status-message,
+.empty-state {
+  border: 1px solid var(--line);
+  padding: 1.25rem;
+}
+
+.status-message.error {
+  border-left: 3px solid #b64c37;
+  color: #803321;
+}
+
+.empty-state {
+  background: var(--paper);
+  max-width: 640px;
+}
+
+.text-link {
+  color: var(--green);
+  display: inline-block;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .app-header-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-bottom: 0;
+    padding-top: 0.8rem;
+  }
+
+  .primary-nav {
+    margin-inline: -0.75rem;
+    max-width: calc(100% + 1.5rem);
+    width: calc(100% + 1.5rem);
+  }
+
+  .primary-nav .nav-link {
+    padding: 0.85rem 0.75rem 0.7rem;
+  }
+
+  .page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

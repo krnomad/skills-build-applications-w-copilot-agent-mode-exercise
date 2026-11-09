@@ -1,6 +1,4 @@
 ---
-mode: 'agent'
-model: GPT-5.5
 description: 'Octofit 다중 계층 애플리케이션의 Node.js 로직 계층 만들기'
 ---
 

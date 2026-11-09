@@ -1,0 +1,32 @@
+:root {
+  --paper: #f7f7f1;
+  --ink: #1b2b21;
+  --green: #2f6047;
+  --pale-green: #e7eee5;
+  --orange: #e58244;
+  --muted: #64736a;
+  --line: #d8ded5;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--paper);
+}
+
+#root {
+  min-height: 100vh;
+}
