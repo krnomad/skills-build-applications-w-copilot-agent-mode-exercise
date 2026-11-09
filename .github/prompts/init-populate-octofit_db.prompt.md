@@ -1,6 +1,4 @@
 ---
-mode: 'agent'
-model: GPT-5.5
 description: 'Octofit 다중 계층 애플리케이션용 MongoDB 구성 및 octofit_db 시드'
 ---
 
