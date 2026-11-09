@@ -3,7 +3,11 @@ import { useApiCollection } from '../hooks/useApiCollection.js'
 import { relationName } from '../utils/formatters.js'
 
 function Users() {
-  const { items, loading, error } = useApiCollection('users')
+  const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
+  const endpoint = codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/users/`
+    : undefined
+  const { items, loading, error } = useApiCollection('users', endpoint)
 
   return (
     <section>

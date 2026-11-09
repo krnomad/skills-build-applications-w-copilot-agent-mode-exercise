@@ -15,7 +15,7 @@ function collectionFrom(payload) {
   return []
 }
 
-export function useApiCollection(resource) {
+export function useApiCollection(resource, endpoint = apiUrl(resource)) {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -28,7 +28,7 @@ export function useApiCollection(resource) {
       setError('')
 
       try {
-        const response = await fetch(apiUrl(resource))
+        const response = await fetch(endpoint)
         if (!response.ok) {
           throw new Error(`Request failed (${response.status})`)
         }
@@ -46,7 +46,7 @@ export function useApiCollection(resource) {
     return () => {
       active = false
     }
-  }, [resource])
+  }, [endpoint, resource])
 
   return { items, loading, error }
 }

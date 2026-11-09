@@ -2,7 +2,11 @@ import { CollectionState, PageHeading } from './CollectionState.jsx'
 import { useApiCollection } from '../hooks/useApiCollection.js'
 
 function Workouts() {
-  const { items, loading, error } = useApiCollection('workouts')
+  const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
+  const endpoint = codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/workouts/`
+    : undefined
+  const { items, loading, error } = useApiCollection('workouts', endpoint)
 
   return (
     <section>

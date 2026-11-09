@@ -2,7 +2,11 @@ import { CollectionState, PageHeading } from './CollectionState.jsx'
 import { useApiCollection } from '../hooks/useApiCollection.js'
 
 function Teams() {
-  const { items, loading, error } = useApiCollection('teams')
+  const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
+  const endpoint = codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/teams/`
+    : undefined
+  const { items, loading, error } = useApiCollection('teams', endpoint)
 
   return (
     <section>

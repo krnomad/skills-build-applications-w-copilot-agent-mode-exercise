@@ -3,7 +3,11 @@ import { useApiCollection } from '../hooks/useApiCollection.js'
 import { formatDate, relationName } from '../utils/formatters.js'
 
 function Activities() {
-  const { items, loading, error } = useApiCollection('activities')
+  const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
+  const endpoint = codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/activities/`
+    : undefined
+  const { items, loading, error } = useApiCollection('activities', endpoint)
 
   return (
     <section>

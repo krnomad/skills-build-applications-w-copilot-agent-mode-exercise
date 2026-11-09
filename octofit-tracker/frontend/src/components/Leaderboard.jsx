@@ -3,7 +3,11 @@ import { useApiCollection } from '../hooks/useApiCollection.js'
 import { relationName } from '../utils/formatters.js'
 
 function Leaderboard() {
-  const { items, loading, error } = useApiCollection('leaderboard')
+  const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
+  const endpoint = codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev/api/leaderboard/`
+    : undefined
+  const { items, loading, error } = useApiCollection('leaderboard', endpoint)
   const rankedItems = [...items].sort((first, second) => (second.points ?? 0) - (first.points ?? 0))
 
   return (
