@@ -1,5 +1,6 @@
 import express from 'express';
 import './config/database';
+import apiRouter from './routes/api';
 
 const app = express();
 const port = 8000;
@@ -9,6 +10,7 @@ const baseUrl = codespaceName
   : `http://localhost:${port}`;
 
 app.use(express.json());
+app.use('/api', apiRouter);
 
 app.get('/api/health', (_request, response) => {
   response.json({ status: 'ok' });
